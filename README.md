@@ -1,56 +1,39 @@
-AI Resume Evaluator
+# AI Resume Evaluator
 
-AI Resume Evaluator is a web-based tool that analyzes resumes (PDF or DOCX) and provides actionable feedback on skills, structure, and improvement areas using AI. This project was developed as Task #2 of the GenAI Internship with Internie.pk.
+A Flask web app (Internie.pk GenAI internship task) that extracts text from **PDF/DOCX** resumes and asks **Groq** (via LangChain) for structured feedback on strengths, gaps, and improvements.
 
-Features
+## Technology stack
 
-Upload resumes in PDF or DOCX format.
+- Python, Flask
+- pdfplumber, python-docx
+- LangChain, Groq
 
-Extract text from resumes using Python libraries (pdfplumber & python-docx).
+There is no Streamlit app in this repository.
 
-Analyze resumes with AI using Groq API for content understanding.
+## Installation
 
-Generate structured feedback on strengths, weaknesses, and improvement suggestions.
+```bash
+git clone https://github.com/hamza2324/resume-evaluator-tool.git
+cd resume-evaluator-tool
+python -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
 
-Simple web interface built with Flask (or Streamlit version for deployment).
+## Configuration
 
-Tech Stack
-Technology	Purpose
-Python	Core programming language
-Flask	Web server and file upload interface
-Streamlit (optional)	Alternative interactive web interface
-Groq API	AI-powered LLM for analyzing resume content
-LangChain	Prompt management and structured AI responses
-pdfplumber	Extract text from PDF resumes
-python-docx	Extract text from DOCX resumes
-How It Works
+```env
+GROQ_API_KEY=your_groq_api_key_here
+```
 
-User uploads a resume.
+See `config.py` for how the key is loaded. Do not commit secrets. `__pycache__/` and `uploads/` should be gitignored.
 
-Text is extracted from the PDF or DOCX file.
+## Usage
 
-Text is sent to Groq API through LangChain for AI evaluation.
+```bash
+python app.py
+```
 
-AI returns structured feedback highlighting strengths, weaknesses, and suggestions.
+## License
 
-Feedback is displayed on the web interface.
-
-Contributing
-
-Contributions are welcome! Feel free to:
-
-Add new features (e.g., scoring, keyword matching, template recommendations).
-
-Improve AI feedback formatting.
-
-Integrate multi-language support.
-
-Acknowledgements
-
-Internie.pk – For providing the GenAI Internship opportunity.
-
-Groq AI & LangChain – For enabling AI-powered resume analysis.
-
-License
-
-This project is licensed under the MIT License.
+MIT — see `LICENSE`.
